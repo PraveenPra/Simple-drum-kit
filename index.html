@@ -5,11 +5,75 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Band</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="my-keyboard">
-
+   <header>Simple Drum Kit</header>
+    <div class="wrapper">
+        <h1 class="title">Hit that !!</h1>
+        <aside>Tip : Press any key shown here on your keyboard (A,S,D,F,G).The display keyboard will respond!</aside>
+        <div class="keyboard">
+        <div data-key="65" class="key">
+           <h2>A</h2>
+           <p>Bell</p>
+        </div>
+        <div data-key="83" class="key">
+            <h2>S</h2>
+            <p>Flute</p>
+         </div>
+         <div data-key="68" class="key">
+            <h2>D</h2>
+            <p>Drum</p>
+         </div>
+         <div data-key="70" class="key">
+            <h2>F</h2>
+            <p>Trumpet</p>
+         </div>
+         <div data-key="71" class="key">
+            <h2>G</h2>
+            <p>Guitar</p>
+         </div>
+        </div>
     </div>
+<footer>The background was made by me in inkscape. And the sounds were taken from 
+    <a href="https://freesound.org/">freesound.org</a></footer>
+    <audio data-key="65" src="Sounds/bell.wav"></audio>
+    <audio data-key="83" src="Sounds/flute.wav"></audio>
+    <audio data-key="68" src="Sounds/drum.wav"></audio>
+    <audio data-key="70" src="Sounds/trumpet.wav"></audio>
+    <audio data-key="71" src="Sounds/guitar.wav"></audio>
+
+    <script>
+
+            function PlaySound(e){
+            const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+
+            const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+
+            if(!audio) return;
+            audio.currentTime = 0;
+            audio.play();
+            key.classList.add('playing');
+                    }
+
+            function removeTransition(e){
+                if(e.propertyName !== 'transform') return;
+                this.classList.remove('playing');
+                console.log(this);
+            }
+            
+            const keys = document.querySelectorAll('.key');
+            keys.forEach(key=>key.addEventListener('transitionend',removeTransition))
+            window.addEventListener('keydown',PlaySound);
+    </script>
 </body>
 </html>

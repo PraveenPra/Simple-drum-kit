@@ -1,0 +1,93 @@
+
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    height:100vh;
+    background: url('./Music background.png') bottom center;
+    background-size: cover;
+    background-repeat: no-repeat; 
+}
+
+header{
+    text-align:center;
+    font-size:32px;
+    color:white;  
+    font-family: 'Monoton', cursive;
+}
+
+aside{
+    width:15rem;
+    position:absolute;
+    top:25vh; left:10px;
+    padding:5px;
+    border:2px solid white;
+    text-align:left;
+    /* font-size:28px; */
+    color:white;    
+}
+
+footer,a{
+    color:white;
+    text-align:center;
+    margin-top:5rem;
+}
+.wrapper{
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    align-items:center;
+}
+
+.title{
+    /* position:absolute;
+    left:20%; top:20%; */
+    color:red;
+    /* border:1px solid red; */
+    /* text-align:center; */
+    font-family: 'Monoton', cursive;
+    font-size:120px;
+    opacity:0.5;
+}
+
+.keyboard{
+    border-radius:100px;
+    padding:50px;
+    /* margin: 0vw auto; */
+    /* width:500px; */
+    display:grid;
+  grid-template-columns: auto auto auto auto auto;
+    background:#3d2645;
+    border:5px solid #7b6d8d;
+    opacity:0.8;
+ 
+}
+
+.key{
+    color:white;
+    background:black;
+    width:5rem;
+    height:5rem;
+    border:5px solid white;
+    margin:10px;
+    border-radius:20px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-evenly;
+    align-items:center;
+    padding:2px;
+    box-shadow:0 0 5px yellow;
+    transition:all 0.1s;
+}
+
+.key > p{
+    font-family: 'Major Mono Display', monospace;
+    font-weight:900;
+}
+
+.playing{
+    border:3px solid yellow;
+    box-shadow:0px 0px 5px 2px orange;
+    transform:scale(1.2);
+}
